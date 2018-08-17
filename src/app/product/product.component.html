@@ -1,0 +1,13 @@
+<div class="product">
+  <h3>Product name: {{ name }}</h3>
+  <p>Category: {{ category }}</p>
+  <p>Description: {{ description }}</p>
+  <p>Price: {{ price }} &euro;</p>
+  <button
+          *ngIf="isAvailable; else unavailableMessage" type="button"
+          (click)="onBuy()"
+  >
+    Buy
+  </button>
+  <ng-template #unavailableMessage><i>Product is not available at the moment</i></ng-template>
+</div>
