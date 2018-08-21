@@ -16,11 +16,11 @@ export class ListComponent implements OnInit {
 
   }
 
-  onBuy(id: number): void {
-    console.log(`Product number ${id} added to cart`);
-  }
-
   ngOnInit() {
       this.productList = this.listService.getProducts();
+  }
+
+  onBuy(id: number): void {
+    console.log(`Product number ${id} added to cart`);
   }
 }
