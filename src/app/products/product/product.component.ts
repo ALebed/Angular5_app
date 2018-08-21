@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Product} from '../product.model';
 
 @Component({
@@ -6,15 +6,26 @@ import {Product} from '../product.model';
     templateUrl: './product.component.html'
 })
 
-export class ProductComponent {
+export class ProductComponent implements OnInit {
+    expanded: boolean;
+
     @Input() product: Product;
 
-    @Output() buyProduct: EventEmitter<number> = new EventEmitter<number>();
+    @Output() buyProduct: EventEmitter<Product> = new EventEmitter<Product>();
+
 
     constructor() {}
 
-    buy(id: number): void {
+    ngOnInit() {
+        this.expanded = false;
+    }
+
+    buy(): void {
         console.log(`click handler inside product component`);
-        this.buyProduct.emit(id);
+        this.buyProduct.emit(this.product);
+    }
+
+    toggleDescription() {
+        this.expanded = !this.expanded;
     }
 }

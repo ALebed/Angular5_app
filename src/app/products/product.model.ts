@@ -7,22 +7,25 @@ export enum Categories {
 interface ProductInterface {
     id: number;
     name: string;
-    description: string;
     price: number;
     category: Categories;
-    isAvailable?: boolean;
+    quantity: number;
+    description?: string;
 }
 
 export class Product implements ProductInterface {
+    isAvailable: boolean;
+
     constructor(
         public id,
         public name,
-        public description,
         public price,
         public category,
-        public isAvailable?
+        public quantity,
+        public description?
     ) {
         this.id = id || null;
-        this.isAvailable = isAvailable || false;
+        this.description = description || null;
+        this.isAvailable = quantity > 0;
     }
 }

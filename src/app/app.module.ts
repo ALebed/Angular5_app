@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 
-import {ListModule} from './products/list.module';
+import {ListModule} from './products/products.module';
 import {CartModule} from './cart/cart.module';
 
 @NgModule({

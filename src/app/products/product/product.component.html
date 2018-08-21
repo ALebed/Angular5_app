@@ -1,13 +1,18 @@
 <li class="product">
     <h3>Product name: {{ product.name }}</h3>
-    <p>Category: {{ product.category }}</p>
-    <p>Description: {{ product.description }}</p>
+    <a href="#" (appClickPrevent)="toggleDescription()">{{expanded ? 'Hide description' : 'Show description'}}</a>
+    <div *ngIf="expanded; then thenBlock"></div>
+    <ng-template #thenBlock>
+        <p>Category: {{ product.category }}</p>
+        <p *ngIf="product.description">Description: {{ product.description }}</p>
+    </ng-template>
     <p>Price: {{ product.price }} &euro;</p>
+    <p>Items left: <span>{{product.quantity}}</span></p>
     <button
-            *ngIf="product.isAvailable; else unavailableMessage" type="button"
-            (click)="buy(product.id)"
+            type="button"
+            [ngClass]="{disabled: !product.isAvailable}"
+            (click)="buy()"
     >
         Buy
     </button>
-    <ng-template #unavailableMessage><i>Product is not available at the moment</i></ng-template>
 </li>
