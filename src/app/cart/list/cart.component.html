@@ -1,7 +1,7 @@
 <div *ngIf="cart.length > 0; then thenBlock else elseBlock"></div>
 <ng-template #thenBlock>
   <h3>Products in your Cart <span>({{cart.length}} items)</span>:</h3>
-  <ul>
+  <ul class="list">
     <app-cart-item
             *ngFor="let item of cart"
             [item]="item"

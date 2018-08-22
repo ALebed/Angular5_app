@@ -1,17 +1,23 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
-    title = 'My Angular Shop';
+export class AppComponent implements OnInit, AfterViewInit {
+
+    @ViewChild('appTitle')
+    titleElement: ElementRef;
 
     constructor() {
     }
 
     ngOnInit() {
 
+    }
+
+    ngAfterViewInit() {
+        (<HTMLHeadingElement>this.titleElement.nativeElement).innerHTML = 'Angular Shop Project';
     }
 }

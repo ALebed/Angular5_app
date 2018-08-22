@@ -17,3 +17,7 @@
 - Add child Product component
 - Realize parent-child communication withing Product List component
 - Add link 'Show/Hide' to toggle product description visibility. Apply directive to prevent default link click behaviour.
+
+####[22.08.2018] Task2
+- Implement parent-child communication via template variable. Access DOM element and set 'App Title' from component class.
+- Implement siblings communication via Communication Service. Use observable subscription to listen, when product is added to cart.

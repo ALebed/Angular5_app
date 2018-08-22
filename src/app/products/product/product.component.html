@@ -1,6 +1,6 @@
-<li class="product">
+<li class="item product">
     <h3>Product name: {{ product.name }}</h3>
-    <a href="#" (appClickPrevent)="toggleDescription()">{{expanded ? 'Hide description' : 'Show description'}}</a>
+    <a href="#" (click.prevent)="toggleDescription()">{{expanded ? 'Hide description' : 'Show description'}}</a>
     <div *ngIf="expanded; then thenBlock"></div>
     <ng-template #thenBlock>
         <p>Category: {{ product.category }}</p>

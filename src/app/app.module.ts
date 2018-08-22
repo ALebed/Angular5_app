@@ -5,6 +5,7 @@ import {AppComponent} from './app.component';
 
 import {ListModule} from './products/products.module';
 import {CartModule} from './cart/cart.module';
+import {CommunicatorService} from './communicator.service';
 
 @NgModule({
     declarations: [
@@ -16,7 +17,7 @@ import {CartModule} from './cart/cart.module';
         ListModule,
         CartModule
     ],
-    providers: [],
+    providers: [CommunicatorService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
