@@ -1,6 +1,6 @@
 <div *ngIf="cart.length > 0; then thenBlock else elseBlock"></div>
 <ng-template #thenBlock>
-  <h3>Products in your Cart <span>({{cart.length}} items)</span>:</h3>
+  <h2>Products in your Cart <span>({{cart.length}} items)</span>:</h2>
   <ul class="list">
     <app-cart-item
             *ngFor="let item of cart"
@@ -10,6 +10,6 @@
   </ul>
 </ng-template>
 <ng-template #elseBlock>
-  <h3>Your cart is empty</h3>
+  <h2>Your cart is empty</h2>
   <p>Please, choose any product from catalog</p>
 </ng-template>

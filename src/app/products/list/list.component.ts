@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterContentInit, Component, ContentChild, ElementRef, OnInit} from '@angular/core';
 
 import {Product} from '../product.model';
 
@@ -11,8 +11,11 @@ import {CommunicatorService} from '../../communicator.service';
     styleUrls: ['./list.component.css']
 })
 
-export class ListComponent implements OnInit {
+export class ListComponent implements OnInit, AfterContentInit {
     productList: Array<Product>;
+
+    @ContentChild('catalogTitle')
+    catalogTitle: ElementRef;
 
     constructor(private listService: ListService,
                 private communicatorService: CommunicatorService) {
@@ -20,6 +23,10 @@ export class ListComponent implements OnInit {
 
     ngOnInit() {
         this.productList = this.listService.getProducts();
+    }
+
+    ngAfterContentInit() {
+        this.catalogTitle.nativeElement.innerText = 'Product Catalog';
     }
 
     onBuy(product: Product): void {
