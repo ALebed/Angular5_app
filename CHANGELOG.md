@@ -23,3 +23,4 @@
 - Implement siblings communication via Communication Service. Use observable subscription to listen, when product is added to cart.
 - Add hover style directive to the Cart Item component. Use @HostBinding and @HostListener directives to control host properties and catch host events
 - Use content projection to display Catalog Title element. Create catalog title text using content-child template variable.
+- Add Bootstrap to the project as npm dependency. Extract global styles.
