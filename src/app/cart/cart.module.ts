@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {CartComponent} from './list/cart.component';
 import {CartService} from './cart.service';
 import {ItemComponent} from './item/item.component';
+import {HoverStyleDirective} from './item/hover-style.directive';
 
 @NgModule({
     imports: [
@@ -10,7 +11,8 @@ import {ItemComponent} from './item/item.component';
     ],
     declarations: [
         CartComponent,
-        ItemComponent
+        ItemComponent,
+        HoverStyleDirective
     ],
     providers: [CartService],
     exports: [CartComponent]

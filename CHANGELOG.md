@@ -21,3 +21,4 @@
 ####[22.08.2018] Task2
 - Implement parent-child communication via template variable. Access DOM element and set 'App Title' from component class.
 - Implement siblings communication via Communication Service. Use observable subscription to listen, when product is added to cart.
+- Add hover style directive to the Cart Item component. Use @HostBinding and @HostListener directives to control host properties and catch host events
