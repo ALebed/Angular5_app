@@ -28,3 +28,4 @@
 ####[27.08.2018] Task2
 - Move to sass
 - Change some files and classes naming
+- Declare communication service and shared directives in shared module

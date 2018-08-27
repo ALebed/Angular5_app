@@ -1,17 +1,20 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+
+import {SharedModule} from '../shared/shared.module';
+
 import {CartComponent} from './list/cart.component';
 import {ItemComponent} from './item/item.component';
-import {HoverStyleDirective} from './item/hover-style.directive';
 
 @NgModule({
     imports: [
-        CommonModule
+        CommonModule,
+
+        SharedModule
     ],
     declarations: [
         CartComponent,
-        ItemComponent,
-        HoverStyleDirective
+        ItemComponent
     ],
     exports: [CartComponent]
 })

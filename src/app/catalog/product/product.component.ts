@@ -7,12 +7,11 @@ import {Product} from '../product.model';
 })
 
 export class ProductComponent implements OnInit {
-    expanded: boolean;
-
     @Input() product: Product;
 
     @Output() buyProduct: EventEmitter<Product> = new EventEmitter<Product>();
 
+    expanded: boolean;
 
     constructor() {}
 

@@ -2,7 +2,7 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {CartItem} from '../item.model';
 import {CartService} from '../cart.service';
 import {Subscription} from 'rxjs';
-import {CommunicatorService} from '../../communicator.service';
+import {CommunicatorService} from '../../shared/communicator.service';
 
 @Component({
     selector: 'app-cart',

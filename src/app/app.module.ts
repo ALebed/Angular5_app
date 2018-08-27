@@ -5,7 +5,7 @@ import {AppComponent} from './app.component';
 
 import {CatalogModule} from './catalog/catalog.module';
 import {CartModule} from './cart/cart.module';
-import {CommunicatorService} from './communicator.service';
+import {SharedModule} from './shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -14,10 +14,11 @@ import {CommunicatorService} from './communicator.service';
     imports: [
         BrowserModule,
 
+        SharedModule.forRoot(),
+
         CatalogModule,
         CartModule
     ],
-    providers: [CommunicatorService],
     bootstrap: [AppComponent]
 })
 export class AppModule {
