@@ -3,7 +3,7 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 
-import {ListModule} from './products/products.module';
+import {CatalogModule} from './catalog/catalog.module';
 import {CartModule} from './cart/cart.module';
 import {CommunicatorService} from './communicator.service';
 
@@ -14,7 +14,7 @@ import {CommunicatorService} from './communicator.service';
     imports: [
         BrowserModule,
 
-        ListModule,
+        CatalogModule,
         CartModule
     ],
     providers: [CommunicatorService],

@@ -24,3 +24,7 @@
 - Add hover style directive to the Cart Item component. Use @HostBinding and @HostListener directives to control host properties and catch host events
 - Use content projection to display Catalog Title element. Create catalog title text using content-child template variable.
 - Add Bootstrap to the project as npm dependency. Extract global styles.
+
+####[27.08.2018] Task2
+- Move to sass
+- Change some files and classes naming

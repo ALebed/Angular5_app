@@ -2,27 +2,27 @@ import {AfterContentInit, Component, ContentChild, ElementRef, OnInit} from '@an
 
 import {Product} from '../product.model';
 
-import {ListService} from '../products.service';
+import {CatalogService} from '../catalog.service';
 import {CommunicatorService} from '../../communicator.service';
 
 @Component({
     selector: 'app-product-list',
-    templateUrl: './list.component.html',
-    styleUrls: ['./list.component.css']
+    templateUrl: './catalog.component.html',
+    styleUrls: ['./catalog.component.scss']
 })
 
-export class ListComponent implements OnInit, AfterContentInit {
+export class CatalogComponent implements OnInit, AfterContentInit {
     productList: Array<Product>;
 
     @ContentChild('catalogTitle')
     catalogTitle: ElementRef;
 
-    constructor(private listService: ListService,
+    constructor(private catalogService: CatalogService,
                 private communicatorService: CommunicatorService) {
     }
 
     ngOnInit() {
-        this.productList = this.listService.getProducts();
+        this.productList = this.catalogService.getProducts();
     }
 
     ngAfterContentInit() {

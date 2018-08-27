@@ -5,7 +5,7 @@ import { Product, Categories } from './product.model';
 @Injectable({
   providedIn: 'root'
 })
-export class ListService {
+export class CatalogService {
 
   constructor() { }
 

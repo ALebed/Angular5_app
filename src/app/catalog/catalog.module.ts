@@ -1,10 +1,9 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {ListComponent} from './list/list.component';
+import {CatalogComponent} from './list/catalog.component';
 import {ProductComponent} from './product/product.component';
 
-import {ListService} from './products.service';
 import {ClickPreventDirective} from './product/click-prevent.directive';
 
 @NgModule({
@@ -12,12 +11,11 @@ import {ClickPreventDirective} from './product/click-prevent.directive';
         CommonModule
     ],
     declarations: [
-        ListComponent,
+        CatalogComponent,
         ProductComponent,
         ClickPreventDirective
     ],
-    providers: [ListService],
-    exports: [ListComponent]
+    exports: [CatalogComponent]
 })
-export class ListModule {
+export class CatalogModule {
 }
