@@ -1,0 +1,19 @@
+<li class="list-item product" appHoverStyle>
+    <h3>Product name: {{ product.name }}</h3>
+    <a href="#" (click.prevent)="toggleDescription()">{{expanded ? 'Hide description' : 'Show description'}}</a>
+    <div *ngIf="expanded; then thenBlock"></div>
+    <ng-template #thenBlock>
+        <p>Category: {{ product.category }}</p>
+        <p *ngIf="product.description">Description: {{ product.description }}</p>
+    </ng-template>
+    <p>Price: {{ product.price }} &euro;</p>
+    <p>Items left: <span>{{product.quantity}}</span></p>
+    <button
+            type="button"
+            class="btn btn-primary btn-block"
+            [ngClass]="{disabled: !product.isAvailable}"
+            (click)="buy()"
+    >
+        Buy
+    </button>
+</li>

@@ -1,0 +1,9 @@
+<ng-content></ng-content>
+<ul class="list-unstyled">
+  <app-product
+          *ngFor="let product of productList"
+          [product]="product"
+          (buyProduct)="onBuy($event)"
+  >
+  </app-product>
+</ul>
