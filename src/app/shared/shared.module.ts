@@ -1,7 +1,6 @@
-import {NgModule, ModuleWithProviders} from '@angular/core';
-import {HoverStyleDirective} from './hover-style.directive';
-import {CommunicatorService} from './communicator.service';
-import {ClickPreventDirective} from './click-prevent.directive';
+import {NgModule} from '@angular/core';
+import {HoverStyleDirective} from './directives/hover-style.directive';
+import {ClickPreventDirective} from './directives/click-prevent.directive';
 
 @NgModule({
     declarations: [
@@ -14,11 +13,4 @@ import {ClickPreventDirective} from './click-prevent.directive';
     ]
 })
 
-export class SharedModule {
-    static forRoot(): ModuleWithProviders {
-        return {
-            ngModule: SharedModule,
-            providers: [CommunicatorService]
-        };
-    }
-}
+export class SharedModule {}

@@ -3,7 +3,7 @@ import {AfterContentInit, Component, ContentChild, ElementRef, OnInit} from '@an
 import {Product} from '../product.model';
 
 import {CatalogService} from '../catalog.service';
-import {CommunicatorService} from '../../shared/communicator.service';
+import {CommunicatorService} from '../../core/services/communicator.service';
 
 @Component({
     selector: 'app-product-list',

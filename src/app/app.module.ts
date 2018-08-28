@@ -3,9 +3,10 @@ import {NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 
+import {CoreModule} from './core/core.module';
+
 import {CatalogModule} from './catalog/catalog.module';
 import {CartModule} from './cart/cart.module';
-import {SharedModule} from './shared/shared.module';
 
 @NgModule({
     declarations: [
@@ -14,7 +15,7 @@ import {SharedModule} from './shared/shared.module';
     imports: [
         BrowserModule,
 
-        SharedModule.forRoot(),
+        CoreModule,
 
         CatalogModule,
         CartModule
