@@ -5,6 +5,7 @@ import {SharedModule} from '../shared/shared.module';
 
 import {CartComponent} from './list/cart.component';
 import {ItemComponent} from './item/item.component';
+import {SummaryComponent} from './summary/summary.component';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import {ItemComponent} from './item/item.component';
     ],
     declarations: [
         CartComponent,
-        ItemComponent
+        ItemComponent,
+        SummaryComponent
     ],
     exports: [CartComponent]
 })

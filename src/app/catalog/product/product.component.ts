@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {Product} from '../product.model';
 
 @Component({
@@ -11,6 +11,9 @@ export class ProductComponent implements OnInit {
 
     @Output() buyProduct: EventEmitter<Product> = new EventEmitter<Product>();
 
+    @ViewChild('quantutyInput')
+    quantity: ElementRef;
+
     expanded: boolean;
 
     constructor() {}
@@ -20,7 +23,6 @@ export class ProductComponent implements OnInit {
     }
 
     buy(): void {
-        console.log(`click handler inside product component`);
         this.buyProduct.emit(this.product);
     }
 

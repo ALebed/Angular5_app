@@ -1,4 +1,12 @@
 <li class="list-item" appHoverStyle>
     <p>Name: {{ item.name }}</p>
     <p>Price: {{ item.price }}</p>
+    <input
+            type="number"
+            min="0"
+            max="{{item.total}}"
+            value="{{ item.quantity }}"
+            (blur) = "onBlur(quantityInput.value)"
+            #quantityInput
+    >
 </li>

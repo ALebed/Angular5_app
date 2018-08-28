@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {CartItem} from '../item.model';
 
 @Component({
@@ -10,5 +10,11 @@ import {CartItem} from '../item.model';
 export class ItemComponent {
     @Input() item: CartItem;
 
+    @Output() changeQuantity: EventEmitter<number> = new EventEmitter<number>();
+
     constructor() {}
+
+    onBlur(quantity: number) {
+        this.changeQuantity.emit(quantity);
+    }
 }
