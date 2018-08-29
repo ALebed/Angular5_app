@@ -1,11 +1,11 @@
 .list-item {
     margin: 16px 0;
     padding: 16px;
-    border: 1px solid #007bff;
+    border: 1px solid #6c757d;
     border-radius: 4px;
 }
 .list-item.hovered {
-    border-color: #ffc107;
+    border-color: #007bff;
 }
 
 .disabled {

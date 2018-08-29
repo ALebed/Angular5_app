@@ -20,7 +20,6 @@ export class ProductComponent implements OnInit {
     }
 
     buy(): void {
-        console.log(`click handler inside product component`);
         this.buyProduct.emit(this.product);
     }
 
