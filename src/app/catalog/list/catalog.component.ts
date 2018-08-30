@@ -25,8 +25,6 @@ export class CatalogComponent implements OnInit, AfterContentInit, OnDestroy {
 
     ngOnInit() {
         this.productList = this.catalogService.getProducts();
-
-        this.sub = this.communicatorService.catalogChannel$.subscribe();
         this.sub = this.communicatorService.cartItemChangeChannel$.subscribe(data => this.catalogService.changeProduct(data));
     }
 
@@ -39,8 +37,9 @@ export class CatalogComponent implements OnInit, AfterContentInit, OnDestroy {
     }
 
     onBuy(product: Product): void {
-        const configuredProduct = this.catalogService.getConfiguredProduct(product.id);
+        this.catalogService.removeProduct(product.id);
+        // const configuredProduct = this.catalogService.getConfiguredProduct(product.id);
 
-        this.communicatorService.publishCatalogData(configuredProduct);
+        this.communicatorService.publishCatalogData(product);
     }
 }

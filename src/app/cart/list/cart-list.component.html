@@ -1,0 +1,8 @@
+<ul class="list-unstyled">
+    <app-cart-item
+            *ngFor="let item of cart"
+            [item]="item"
+            (changeQuantity)="onChangeQuantity(item.id, $event)"
+    >
+    </app-cart-item>
+</ul>

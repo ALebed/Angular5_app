@@ -20,14 +20,13 @@ export class CatalogService {
         return this.localStorageCatalog || [];
     }
 
-    getConfiguredProduct(itemId: number) {
-        const boughtProduct = this.localStorageCatalog.find((item) => item.id === itemId);
-
-        boughtProduct.quantity -= 1;
-        boughtProduct.isAvailable = boughtProduct.quantity > 0;
-
-        const {id, name, price, total} = boughtProduct;
-        return {id, name, price, quantity: 1, total};
+    removeProduct(id: number): void {
+        this.localStorageCatalog.map(product => {
+            if(product.id === id) {
+                product.quantity -= 1;
+                product.isAvailable = product.quantity > 0;
+            }
+        });
     }
 
     changeProduct(data: {id: number, quantity: number}) {

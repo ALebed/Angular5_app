@@ -3,11 +3,11 @@ import {CartItem} from '../item.model';
 
 @Component({
     selector: 'app-cart-item',
-    templateUrl: './item.component.html',
-    styleUrls: ['./item.component.scss']
+    templateUrl: './cart-item.component.html',
+    styleUrls: ['./cart-item.component.scss']
 })
 
-export class ItemComponent {
+export class CartItemComponent {
     @Input() item: CartItem;
 
     @Output() changeQuantity: EventEmitter<number> = new EventEmitter<number>();

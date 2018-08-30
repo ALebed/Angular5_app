@@ -3,8 +3,9 @@ import {CommonModule} from '@angular/common';
 
 import {SharedModule} from '../shared/shared.module';
 
-import {CartComponent} from './list/cart.component';
-import {ItemComponent} from './item/item.component';
+import {CartComponent} from './cart.component';
+import {CartListComponent} from './list/cart-list.component';
+import {CartItemComponent} from './item/cart-item.component';
 import {SummaryComponent} from './summary/summary.component';
 
 @NgModule({
@@ -15,7 +16,8 @@ import {SummaryComponent} from './summary/summary.component';
     ],
     declarations: [
         CartComponent,
-        ItemComponent,
+        CartItemComponent,
+        CartListComponent,
         SummaryComponent
     ],
     exports: [CartComponent]
