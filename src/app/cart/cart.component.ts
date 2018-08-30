@@ -31,6 +31,7 @@ export class CartComponent implements OnInit, OnDestroy {
     }
 
     onChangeQuantity({id, quantity}: ChangeQuantityObject): void {
+        this.cartService.updateItem(id, quantity);
         this.communicatorService.publishCartItemChanges(id, quantity);
     }
 }

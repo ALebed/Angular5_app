@@ -30,6 +30,12 @@ export class CartService {
         }
     }
 
+    updateItem(id, quantity) {
+        this.localStorageCart.map(item => {
+            if(item.id === id) { item.quantity = quantity }
+        });
+    }
+
     getTotalPrice() {
         return this.localStorageCart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     }
