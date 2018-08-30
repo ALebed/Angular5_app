@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 
 import {HoverStyleDirective} from './directives/hover-style.directive';
 import {ClickPreventDirective} from './directives/click-prevent.directive';
+import {ClickStyleDirective} from './directives/click-style.directive';
 
 @NgModule({
     imports: [
@@ -10,11 +11,13 @@ import {ClickPreventDirective} from './directives/click-prevent.directive';
     ],
     declarations: [
         HoverStyleDirective,
-        ClickPreventDirective
+        ClickPreventDirective,
+        ClickStyleDirective
     ],
     exports: [
         HoverStyleDirective,
-        ClickPreventDirective
+        ClickPreventDirective,
+        ClickStyleDirective
     ]
 })
 
