@@ -29,3 +29,6 @@
 - Move to sass
 - Change some files and classes naming
 - Declare communication service and shared directives in shared module
+
+####[29.08.2018] Task3
+- Add ClickStyleDirective, using ElementRef service DI, to highlight items on click
