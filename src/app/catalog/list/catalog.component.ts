@@ -11,7 +11,6 @@ import {CommunicatorService} from '../../core/services/communicator.service';
     templateUrl: './catalog.component.html',
     styleUrls: ['./catalog.component.scss']
 })
-
 export class CatalogComponent implements OnInit, AfterContentInit, OnDestroy {
     private sub: Subscription;
     productList: Array<Product>;
@@ -37,9 +36,10 @@ export class CatalogComponent implements OnInit, AfterContentInit, OnDestroy {
     }
 
     onBuy(product: Product): void {
-        this.catalogService.removeProduct(product.id);
-        // const configuredProduct = this.catalogService.getConfiguredProduct(product.id);
+        this.catalogService.removeProduct(product.id, (product.total - product.quantity) + 1);
+        this.productList = this.catalogService.getProducts();
+        const boughtProduct = this.catalogService.getProduct(product.id);
 
-        this.communicatorService.publishCatalogData(product);
+        this.communicatorService.publishCatalogData(boughtProduct);
     }
 }

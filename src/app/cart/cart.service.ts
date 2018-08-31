@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 
-import {CartItem} from './item.model';
+import {CartItem} from './cart-item.model';
 import {Product} from '../catalog/product.model';
 
 @Injectable({
@@ -17,23 +17,23 @@ export class CartService {
     }
 
     addItem(product: Product) {
-        const {id, name, price, total} = product;
-        const isDuplicated = this.localStorageCart.find(item => item.id === product.id);
-        if(isDuplicated) {
-            this.localStorageCart.map(item => {
-                if (item.id === product.id) {
-                    item.quantity += 1;
-                }
-            });
-        } else {
-            this.localStorageCart.push({id, name, price, total, quantity: 1})
-        }
+        const {id, name, price, total, quantity} = product;
+
+        this.localStorageCart =
+            this.localStorageCart.find(item => item.id === id)
+                ? this.getUpdatedCart(id, total - quantity)
+                : [...this.localStorageCart, {id, name, price, total, quantity: (total - quantity)}];
     }
 
     updateItem(id, quantity) {
-        this.localStorageCart.map(item => {
-            if(item.id === id) { item.quantity = quantity }
-        });
+        this.localStorageCart = this.getUpdatedCart(id, quantity);
+    }
+
+    getUpdatedCart(id, quantity) {
+        return this.localStorageCart.map(item => (item.id === id) ? {
+            ...item,
+            quantity,
+        } : item);
     }
 
     getTotalPrice() {

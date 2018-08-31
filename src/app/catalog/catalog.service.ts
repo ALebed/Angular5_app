@@ -20,13 +20,17 @@ export class CatalogService {
         return this.localStorageCatalog || [];
     }
 
-    removeProduct(id: number): void {
-        this.localStorageCatalog.map(product => {
-            if(product.id === id) {
-                product.quantity -= 1;
-                product.isAvailable = product.quantity > 0;
-            }
-        });
+    getProduct(id: number): Product {
+        return this.localStorageCatalog.find(product => product.id === id);
+    }
+
+    removeProduct(id: number, amount: number): void {
+        this.localStorageCatalog = this.localStorageCatalog.map(product => {
+            return (product.id === id) ? {
+                ...product,
+                quantity: product.total - amount,
+                isAvailable: product.total - amount > 0,
+            } : product; } );
     }
 
     changeProduct(data: {id: number, quantity: number}) {

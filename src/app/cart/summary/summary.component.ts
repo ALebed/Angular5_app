@@ -19,7 +19,7 @@ export class SummaryComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
       this.updateTotalPrice();
-      this.subCatalog = this.communicatorService.catalogChannel$.subscribe(() => this.updateTotalPrice());
+      this.subCatalog = this.communicatorService.catalogProductAddChannel$.subscribe(() => this.updateTotalPrice());
       this.subCartItemChange = this.communicatorService.cartItemChangeChannel$.subscribe(() => this.updateTotalPrice());
   }
 

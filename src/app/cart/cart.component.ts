@@ -1,13 +1,11 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import {CartItem} from './item.model';
-import {CartService} from './cart.service';
 import {Subscription} from 'rxjs';
+
+import {CartService} from './cart.service';
 import {CommunicatorService} from '../core/services/communicator.service';
 
-interface ChangeQuantityObject {
-    id: number;
-    quantity: number;
-}
+import {CartItem} from './cart-item.model';
+import {IChangeItem} from './change-item.interface';
 
 @Component({
     selector: 'app-cart',
@@ -23,14 +21,17 @@ export class CartComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.cart = this.cartService.getItems();
-        this.sub = this.communicatorService.catalogChannel$.subscribe(data => this.cartService.addItem(data));
+        this.sub = this.communicatorService.catalogProductAddChannel$.subscribe(data => {
+            this.cartService.addItem(data);
+            this.cart = this.cartService.getItems();
+        });
     }
 
     ngOnDestroy() {
         this.sub.unsubscribe();
     }
 
-    onChangeQuantity({id, quantity}: ChangeQuantityObject): void {
+    onChangeQuantity({ id, quantity }: IChangeItem): void {
         this.cartService.updateItem(id, quantity);
         this.communicatorService.publishCartItemChanges(id, quantity);
     }
