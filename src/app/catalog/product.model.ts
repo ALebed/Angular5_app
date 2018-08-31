@@ -15,6 +15,7 @@ interface ProductInterface {
 
 export class Product implements ProductInterface {
     isAvailable: boolean;
+    total: number;
 
     constructor(
         public id,
@@ -27,5 +28,6 @@ export class Product implements ProductInterface {
         this.id = id || null;
         this.description = description || null;
         this.isAvailable = quantity > 0;
+        this.total = this.quantity;
     }
 }

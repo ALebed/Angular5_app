@@ -5,6 +5,7 @@ import {SharedModule} from '../shared/shared.module';
 
 import {CatalogComponent} from './list/catalog.component';
 import {ProductComponent} from './product/product.component';
+import { SummaryComponent } from '../cart/summary/summary.component';
 
 
 @NgModule({

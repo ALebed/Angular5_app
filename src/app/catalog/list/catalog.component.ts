@@ -1,4 +1,5 @@
-import {AfterContentInit, Component, ContentChild, ElementRef, OnInit} from '@angular/core';
+import {AfterContentInit, Component, ContentChild, ElementRef, OnDestroy, OnInit} from '@angular/core';
+import {Subscription} from 'rxjs';
 
 import {Product} from '../product.model';
 
@@ -11,7 +12,8 @@ import {CommunicatorService} from '../../core/services/communicator.service';
     styleUrls: ['./catalog.component.scss']
 })
 
-export class CatalogComponent implements OnInit, AfterContentInit {
+export class CatalogComponent implements OnInit, AfterContentInit, OnDestroy {
+    private sub: Subscription;
     productList: Array<Product>;
 
     @ContentChild('catalogTitle')
@@ -23,20 +25,21 @@ export class CatalogComponent implements OnInit, AfterContentInit {
 
     ngOnInit() {
         this.productList = this.catalogService.getProducts();
+        this.sub = this.communicatorService.cartItemChangeChannel$.subscribe(data => this.catalogService.changeProduct(data));
     }
 
     ngAfterContentInit() {
         this.catalogTitle.nativeElement.innerText = 'Product Catalog';
     }
 
+    ngOnDestroy() {
+        this.sub.unsubscribe();
+    }
+
     onBuy(product: Product): void {
-        const boughtProduct = this.productList.find((item) => item.id === product.id);
-        boughtProduct.quantity -= 1;
+        this.catalogService.removeProduct(product.id);
+        // const configuredProduct = this.catalogService.getConfiguredProduct(product.id);
 
-        // TODO: ask, how to avoid additional check here, and rerender 'isAvailable' automatically
-        boughtProduct.isAvailable = boughtProduct.quantity > 0;
-
-        const {id, name, price} = product;
-        this.communicatorService.publishCatalogData({id, name, price});
+        this.communicatorService.publishCatalogData(product);
     }
 }
