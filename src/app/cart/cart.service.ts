@@ -39,4 +39,8 @@ export class CartService {
     getTotalPrice() {
         return this.localStorageCart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     }
+
+    getTotalNumber() {
+        return this.localStorageCart.reduce((acc, item) => acc + item.quantity, 0);
+    }
 }

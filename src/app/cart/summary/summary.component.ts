@@ -13,14 +13,15 @@ export class SummaryComponent implements OnInit, OnDestroy {
   private subCatalog: Subscription;
   private subCartItemChange: Subscription;
   totalPrice: number;
+  totalNumber: number;
 
   constructor(private cartService: CartService,
               private communicatorService: CommunicatorService) { }
 
   ngOnInit() {
-      this.updateTotalPrice();
-      this.subCatalog = this.communicatorService.catalogProductAddChannel$.subscribe(() => this.updateTotalPrice());
-      this.subCartItemChange = this.communicatorService.cartItemChangeChannel$.subscribe(() => this.updateTotalPrice());
+      this.updateSummary();
+      this.subCatalog = this.communicatorService.catalogProductAddChannel$.subscribe(() => this.updateSummary());
+      this.subCartItemChange = this.communicatorService.cartItemChangeChannel$.subscribe(() => this.updateSummary());
   }
 
   ngOnDestroy() {
@@ -28,7 +29,16 @@ export class SummaryComponent implements OnInit, OnDestroy {
     this.subCartItemChange.unsubscribe();
   }
 
+  updateSummary() {
+      this.updateTotalPrice();
+      this.updateTotalNumber();
+  }
+
   updateTotalPrice() {
       this.totalPrice = this.cartService.getTotalPrice();
+  }
+
+  updateTotalNumber() {
+      this.totalNumber = this.cartService.getTotalNumber();
   }
 }
